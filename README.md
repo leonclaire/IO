@@ -15,7 +15,7 @@ How to use:
     3. call api
     4. admin run. 
 
-Sample:
+Sample code:
 
     #pragma comment(lib,"F:\\Public\\io.lib")
 
