@@ -11,7 +11,7 @@ How to use:
 
     1. #pragma comment(lib,"F:\Public\\io.lib")
     2. BOOL ReadPort(WORD port, PBYTE value);
-        BOOL WritePort(WORD port, BYTE value);
+       BOOL WritePort(WORD port, BYTE value);
     3. call api
     4. admin run. 
 
@@ -19,8 +19,8 @@ Sample:
 
     #pragma comment(lib,"F:\\Public\\io.lib")
 
-    BOOL	ReadPort(WORD port, PBYTE value);
-    BOOL	WritePort(WORD port, BYTE value);
+    BOOL ReadPort(WORD port, PBYTE value);
+    BOOL WritePort(WORD port, BYTE value);
 
     int main()
     {
