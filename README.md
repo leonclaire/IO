@@ -3,10 +3,12 @@ The easiest way to read/write port value.
 Code is based on openlibsys.
 
 Attention:
+
     1. no virus, no trojan, no backdoor... 
     2. no copyright, all free and shareable.
 
 How to use:
+
     1. #pragma comment(lib,"F:\Public\\io.lib")
     2. BOOL ReadPort(WORD port, PBYTE value);
         BOOL WritePort(WORD port, BYTE value);
@@ -14,6 +16,7 @@ How to use:
     4. admin run. 
 
 Sample:
+
     #pragma comment(lib,"F:\\Public\\io.lib")
 
     BOOL	ReadPort(WORD port, PBYTE value);
