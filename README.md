@@ -1,8 +1,6 @@
 The easiest way to read/write port value.
 
-
 Code is based on openlibsys.
-
 
 Attention:
 
