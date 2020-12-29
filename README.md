@@ -6,6 +6,24 @@ Attention:
 
     1. no virus, no trojan, no backdoor... 
     2. no copyright, all free and shareable.
+    
+Interface:
+
+    BOOL rp8(WORD, PBYTE);
+    BOOL rp16(WORD, PWORD);
+    BOOL rp32(WORD, PDWORD);
+
+    BOOL wp8(WORD, BYTE);
+    BOOL wp16(WORD, WORD);
+    BOOL wp32(WORD, DWORD);
+
+    DWORD rm8(DWORDPTR, PBYTE, DWORD);
+    DWORD rm16(DWORDPTR, PBYTE, DWORD);
+    DWORD rm32(DWORDPTR, PBYTE, DWORD);
+
+    DWORD wm8(DWORDPTR, PBYTE, DWORD);
+    DWORD wm16(DWORDPTR, PBYTE, DWORD);
+    DWORD wm32(DWORDPTR, PBYTE, DWORD);
 
 How to use:
 
