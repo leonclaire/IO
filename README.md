@@ -1,11 +1,12 @@
-The easiest way to read/write port value.
+The easiest way to read/write port value
+and call acpi method.
 
 Code is based on openlibsys.
 
 Attention:
 
-    1. no virus, no trojan, no backdoor... 
-    2. no copyright, all free and shareable.
+    1. no trojan, no backdoor... 
+    2. all free and shareable.
     
 Interface:
 
