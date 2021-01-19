@@ -9,21 +9,19 @@ Attention:
     
 Interface:
 
-    BOOL rp8(WORD, PBYTE);
-    BOOL rp16(WORD, PWORD);
-    BOOL rp32(WORD, PDWORD);
-
-    BOOL wp8(WORD, BYTE);
-    BOOL wp16(WORD, WORD);
-    BOOL wp32(WORD, DWORD);
-
-    DWORD rm8(DWORDPTR, PBYTE, DWORD);
-    DWORD rm16(DWORDPTR, PBYTE, DWORD);
-    DWORD rm32(DWORDPTR, PBYTE, DWORD);
-
-    DWORD wm8(DWORDPTR, PBYTE, DWORD);
-    DWORD wm16(DWORDPTR, PBYTE, DWORD);
-    DWORD wm32(DWORDPTR, PBYTE, DWORD);
+    BOOL  rp8(WORD, PBYTE);
+    BOOL  wp8(WORD, BYTE);
+    BOOL  rm8(DWORD_PTR, PBYTE, DWORD);
+    BOOL  wm8(DWORD_PTR, PBYTE, DWORD);
+    BOOL  OA();
+    BOOL  rp(PCSTR);
+    BOOL  rm(PCSTR);
+    BOOL  pi(DWORD);
+    BOOL  ps(PCSTR);
+    BOOL  pb(PBYTE, DWORD);
+    BOOL  gi(PDWORD);
+    BOOL  gs(PSTR, DWORD);
+    BOOL  gb(PBYTE, DWORD);
 
 How to use:
 
@@ -42,13 +40,63 @@ Sample code:
 
     int main()
     {
-        BYTE v1, v2;
+        DWORD d = 123;
+        CHAR s1[200];
+        CHAR s2[200];
+        CHAR s3[200];
+        CHAR s4[200];
+        BYTE b[3] = { 7, 8, 9 };
 
-        rp8(0x60, &v1);
-        rp8(0x64, &v2);
+        OA();
 
-        wp8(0x60, 0x1);
-        wp8(0x64, 0x1);
+        rp("_SB_.PCI0.LPCB.BAT1");
+
+        pi(0);
+
+        rm("BIFX");
+
+        for (int i = 0; i < 9; i++)
+        {
+            gi(&d);
+        }
+
+        gs(s1, 200);
+        gs(s2, 200);
+        gs(s3, 200);
+        gs(s4, 200);
+
+        cout << s1 << endl;
+        cout << s2 << endl;
+        cout << s3 << endl;
+        cout << s4 << endl;
+
+        pi(1);
+
+        rm("BIFX");
+
+        for (int i=0; i<16;i++)
+        {
+            gi(&d);
+        }
+
+        gs(s1, 200);
+        gs(s2, 200);
+        gs(s3, 200);
+        gs(s4, 200);
+
+        cout << s1 << endl;
+        cout << s2 << endl;
+        cout << s3 << endl;
+        cout << s4 << endl;
+        //BYTE vvv;
+        //ReadIO(0x60, &vvv);
+        //ReadIO(0x64, &vvv);
+
+        //BYTE buffer[512];
+        //rm8(0x000E5E30, buffer, 512);
+
+        //buffer[0x1d] = 0x41;
+        //wm8(0x000E5E30, buffer, 512);
 
         return 0;
     }
