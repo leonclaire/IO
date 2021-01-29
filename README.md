@@ -17,10 +17,10 @@ Interface:
     BOOL  OA();
     BOOL  rp(PCSTR);
     BOOL  rm(PCSTR);
-    BOOL  pi(DWORD);
+    BOOL  pn(DWORD);
     BOOL  ps(PCSTR);
     BOOL  pb(PBYTE, DWORD);
-    BOOL  gi(PDWORD);
+    BOOL  gn(PDWORD);
     BOOL  gs(PSTR, DWORD);
     BOOL  gb(PBYTE, DWORD);
 
@@ -52,13 +52,13 @@ Sample code:
 
         rp("_SB_.PCI0.LPCB.BAT1");
 
-        pi(0);
+        pn(0);
 
         rm("BIFX");
 
         for (int i = 0; i < 9; i++)
         {
-            gi(&d);
+            gn(&d);
         }
 
         gs(s1, 200);
@@ -71,13 +71,13 @@ Sample code:
         cout << s3 << endl;
         cout << s4 << endl;
 
-        pi(1);
+        pn(1);
 
         rm("BIFX");
 
         for (int i=0; i<16;i++)
         {
-            gi(&d);
+            gn(&d);
         }
 
         gs(s1, 200);
