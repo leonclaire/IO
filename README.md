@@ -16,7 +16,7 @@ Interface:
     BOOL  wm8(DWORD_PTR, PBYTE, DWORD);
     BOOL  OA();
     BOOL  op(PCSTR);
-    BOOL  rm(PCSTR);
+    BOOL  cm(PCSTR);
     BOOL  pn(DWORD);
     BOOL  ps(PCSTR);
     BOOL  pb(PBYTE, DWORD);
