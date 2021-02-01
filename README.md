@@ -15,7 +15,7 @@ Interface:
     BOOL  rm8(DWORD_PTR, PBYTE, DWORD);
     BOOL  wm8(DWORD_PTR, PBYTE, DWORD);
     BOOL  OA();
-    BOOL  rp(PCSTR);
+    BOOL  op(PCSTR);
     BOOL  rm(PCSTR);
     BOOL  pn(DWORD);
     BOOL  ps(PCSTR);
@@ -50,11 +50,11 @@ Sample code:
 
         OA();
 
-        rp("_SB_.PCI0.LPCB.BAT1");
+        op("_SB_.PCI0.LPCB.BAT1");
 
         pn(0);
 
-        rm("BIFX");
+        cm("BIFX");
 
         for (int i = 0; i < 9; i++)
         {
@@ -73,7 +73,7 @@ Sample code:
 
         pn(1);
 
-        rm("BIFX");
+        cm("BIFX");
 
         for (int i=0; i<16;i++)
         {
