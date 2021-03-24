@@ -67,8 +67,8 @@ Sample code:
 
         for (int i = 0; i < 16; i++)
         {
-                gn(&d);
-                cout << d << endl;
+            gn(&d);
+            cout << d << endl;
         }
 
         gs(o1, 64);
@@ -106,7 +106,7 @@ Sample code:
 
         //while (1)
         //{
-        //        if (!gp(PIOPACK(o5))) break;
+        //    if (!gp(PIOPACK(o5))) break;
         //}
 
         //BYTE vvv;
