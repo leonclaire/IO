@@ -41,63 +41,83 @@ Sample code:
 
     int main()
     {
-        DWORD d = 123;
-        CHAR s1[200];
-        CHAR s2[200];
-        CHAR s3[200];
-        CHAR s4[200];
-        BYTE b[3] = { 7, 8, 9 };
+		DWORD d = 123;
 
-        OA();
+		CHAR o1[64];
+		CHAR o2[64];
+		CHAR o3[64];
+		CHAR o4[64];
 
-        op("_SB_.PCI0.LPCB.BAT1");
+		CHAR o5[5000];
+		PIOPACK(o5)->Size = 5000;
 
-        pn(0);
+		DWORD d1;
+		DWORD d2;
+		DWORD d3;
+		DWORD d4;
 
-        cm("BIFX");
+		BYTE vvv;
 
-        for (int i = 0; i < 9; i++)
-        {
-            gn(&d);
-        }
+		OA();
+		sa(256, 512);
 
-        gs(s1, 200);
-        gs(s2, 200);
-        gs(s3, 200);
-        gs(s4, 200);
+		op("_SB_.PCI0.LPCB.BAT1");
+		pn(1);
+		cm("BIFX");
 
-        cout << s1 << endl;
-        cout << s2 << endl;
-        cout << s3 << endl;
-        cout << s4 << endl;
+		for (int i = 0; i < 16; i++)
+		{
+			gn(&d);
+			cout << d << endl;
+		}
 
-        pn(1);
+		gs(o1, 64);
+		gs(o2, 64);
+		gs(o3, 64);
+		gs(o4, 64);
 
-        cm("BIFX");
+		cout << o1 << endl;
+		cout << o2 << endl;
+		cout << o3 << endl;
+		cout << o4 << endl << endl;
 
-        for (int i=0; i<16;i++)
-        {
-            gn(&d);
-        }
+		ZeroMemory(o1, 64);
+		ZeroMemory(o2, 64);
+		ZeroMemory(o3, 64);
+		ZeroMemory(o4, 64);
 
-        gs(s1, 200);
-        gs(s2, 200);
-        gs(s3, 200);
-        gs(s4, 200);
+		op("_TZ_.TZ00");
+		cm("_TMP");
+		gn(&d);
 
-        cout << s1 << endl;
-        cout << s2 << endl;
-        cout << s3 << endl;
-        cout << s4 << endl;
-        //BYTE vvv;
-        //ReadIO(0x60, &vvv);
-        //ReadIO(0x64, &vvv);
+		op("_TZ_.TZ01");
+		cm("_TMP");
+		gn(&d);
 
-        //BYTE buffer[512];
-        //rm8(0x000E5E30, buffer, 512);
+		op("");
+		ps("Windows 2020");
+		cm("_OSI");
+		gn(&d);
 
-        //buffer[0x1d] = 0x41;
-        //wm8(0x000E5E30, buffer, 512);
+		cin >> vvv;
 
-        return 0;
+		//op("_SB_.PCI0");
+		//cm("_PRT");
+
+		//while (1)
+		//{
+		//	if (!gp(PIOPACK(o5))) break;
+		//}
+
+		//BYTE vvv;
+		//rp8(0x60, &vvv);
+		//rp8(0x64, &vvv);
+
+		//BYTE buffer[512];
+		//rm8(0x000E5E30, buffer, 512);
+
+		//buffer[0x1d] = 0x49;
+		//wm8(0x000E5E30, buffer, 512);
+
+		return 0;
     }
