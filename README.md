@@ -14,15 +14,6 @@ Interface:
     BOOL  wp8(WORD, BYTE);
     BOOL  rm8(DWORD_PTR, PBYTE, DWORD);
     BOOL  wm8(DWORD_PTR, PBYTE, DWORD);
-    BOOL  OA();
-    BOOL  op(PCSTR);
-    BOOL  cm(PCSTR);
-    BOOL  pn(DWORD);
-    BOOL  ps(PCSTR);
-    BOOL  pb(PBYTE, DWORD);
-    BOOL  gn(PDWORD);
-    BOOL  gs(PSTR, DWORD);
-    BOOL  gb(PBYTE, DWORD);
 
 How to use:
 
