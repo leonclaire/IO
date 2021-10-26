@@ -32,75 +32,53 @@ Sample code:
 
     int main()
     {
-        DWORD d = 123;
+        DWORD d = 0xFF;
 
-        CHAR o1[64];
+        CHAR o1[128] = {0};
         CHAR o2[64];
         CHAR o3[64];
         CHAR o4[64];
 
-        CHAR o5[5000];
-        PIOPACK(o5)->Size = 5000;
-
-        DWORD d1;
-        DWORD d2;
-        DWORD d3;
-        DWORD d4;
-
-        BYTE vvv;
-
         OA();
-        sa(256, 512);
 
-        op("_SB_.PCI0.LPCB.BAT1");
-        pn(1);
-        cm("BIFX");
+        ACPI acpier(100, 2048);
 
-        for (int i = 0; i < 16; i++)
+        acpier.op("_SB_.PCI0.LPCB.BAT1");
+        acpier.pn(1);
+
+        CTime s = CTime::GetTickCount();
+
+        ULONG cnt = 0;
+        while (++cnt < 10)
         {
-            gn(&d);
-            cout << d << endl;
+            acpier.cm("BIFX");
+            cout << cnt << endl << endl;;
+
+            for (int i = 0; i < 16; i++)
+            {
+                acpier.gn(&d);
+                cout << d << endl;
+            }
+
+            acpier.gs(o1, 64);
+            acpier.gs(o2, 64);
+            acpier.gs(o3, 64);
+            acpier.gs(o4, 64);
+
+            cout << o1 << endl;
+            cout << o2 << endl;
+            cout << o3 << endl;
+            cout << o4 << endl << endl;
+
+            cout << cnt << endl;
         }
 
-        gs(o1, 64);
-        gs(o2, 64);
-        gs(o3, 64);
-        gs(o4, 64);
+        CTime e = CTime::GetTickCount();
 
-        cout << o1 << endl;
-        cout << o2 << endl;
-        cout << o3 << endl;
-        cout << o4 << endl << endl;
+        CTimeSpan diff = e - s;
 
-        ZeroMemory(o1, 64);
-        ZeroMemory(o2, 64);
-        ZeroMemory(o3, 64);
-        ZeroMemory(o4, 64);
+        cout << diff.GetTotalSeconds() << endl;
 
-        op("_TZ_.TZ00");
-        cm("_TMP");
-        gn(&d);
-
-        op("_TZ_.TZ01");
-        cm("_TMP");
-        gn(&d);
-
-        op("");
-        ps("Windows 2020");
-        cm("_OSI");
-        gn(&d);
-
-        cin >> vvv;
-
-        //op("_SB_.PCI0");
-        //cm("_PRT");
-
-        //while (1)
-        //{
-        //    if (!gp(PIOPACK(o5))) break;
-        //}
-
-        //BYTE vvv;
         //rp8(0x60, &vvv);
         //rp8(0x64, &vvv);
 
