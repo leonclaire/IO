@@ -30,6 +30,29 @@ Sample code:
     BOOL rp8(WORD port, PBYTE value); //ReadPort
     BOOL wp8(WORD port, BYTE value);  //WritePort
 
+    class ACPI
+    {
+    public:
+        VOID zi();
+        ACPI(DWORD, DWORD);
+        virtual ~ACPI();
+
+        BOOL op(PCSTR);
+        BOOL cm(PCSTR);
+        BOOL pn(DWORD);
+        BOOL ps(PCSTR);
+        BOOL pb(PBYTE, DWORD);
+        BOOL pp(PBYTE, DWORD);
+        BOOL gn(DWORD*);
+        BOOL gs(PSTR, DWORD);
+        BOOL gb(PBYTE, DWORD);
+        BOOL gp(PBYTE, DWORD);
+
+    private:
+        PVOID reserve1;
+        PVOID reserve2;
+    };
+
     int main()
     {
         DWORD d = 0xFF;
