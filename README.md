@@ -1,4 +1,4 @@
-The easiest way to read/write ec port value
+The easiest way to read/write ec port
 and call acpi method.
 
 Code is based on openlibsys.
@@ -15,6 +15,9 @@ Interface:
     BOOL  rm8(DWORD_PTR, PBYTE, DWORD);
     BOOL  wm8(DWORD_PTR, PBYTE, DWORD);
 
+    VOID ITEReadSpace(WORD, BYTE*);
+    VOID ITEWriteSpace(WORD, BYTE);
+
 How to use:
 
     1. #pragma comment(lib,"F:\Public\\io.lib")
@@ -29,6 +32,9 @@ Sample code:
 
     BOOL rp8(WORD port, PBYTE value); //ReadPort
     BOOL wp8(WORD port, BYTE value);  //WritePort
+
+    VOID ITEReadSpace(WORD, BYTE*);
+    VOID ITEWriteSpace(WORD, BYTE);
 
     class ACPI
     {
@@ -102,14 +108,19 @@ Sample code:
 
         cout << diff.GetTotalSeconds() << endl;
 
-        //rp8(0x60, &vvv);
-        //rp8(0x64, &vvv);
+        rp8(0x60, &vvv);
+        rp8(0x64, &vvv);
 
-        //BYTE buffer[512];
-        //rm8(0x000E5E30, buffer, 512);
+        BYTE buffer[512];
+        rm8(0x000E5E30, buffer, 512);
 
-        //buffer[0x1d] = 0x49;
-        //wm8(0x000E5E30, buffer, 512);
+        buffer[0x1d] = 0x49;
+        wm8(0x000E5E30, buffer, 512);
+
+        for (size_t i = 0; i < 255; i++)
+        {
+            ITEReadSpace(i, &data);
+        }
 
         return 0;
     }
