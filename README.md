@@ -1,4 +1,4 @@
-The easiest way to read/write port value
+The easiest way to read/write ec port value
 and call acpi method.
 
 Code is based on openlibsys.
