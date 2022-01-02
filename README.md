@@ -121,6 +121,19 @@ Sample code:
         {
             ITEReadSpace(i, &data);
         }
+        
+        BYTE b[255] = {0};
+        MMIO test(0xBFED9000, 2048);
+        int i = 0;
+        while (++i < 10)
+        {
+            test.rm8(0x18, 255, b);
+            CString t;
+            t.Format("%s", b);
+            cout << t << endl;
+            Sleep(1000);
+        }
 
+        test.rm8(0x18, 255, b);
         return 0;
     }
