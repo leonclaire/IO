@@ -17,22 +17,6 @@ Interface:
 
     VOID ITEReadSpace(WORD, BYTE*);
     VOID ITEWriteSpace(WORD, BYTE);
-
-How to use:
-
-    1. #pragma comment(lib,"F:\Public\\io.lib")
-    2. BOOL rp8(WORD port, PBYTE value);
-       BOOL wp8(WORD port, BYTE value);
-    3. call api
-    4. admin run. 
-
-Sample code:
-
-    #pragma comment(lib,"F:\\Public\\io.lib")
-
-    BOOL rp8(WORD port, PBYTE value); //ReadPort
-    BOOL wp8(WORD port, BYTE value);  //WritePort
-
     VOID ITEReadSpace(WORD, BYTE*);
     VOID ITEWriteSpace(WORD, BYTE);
 
@@ -58,6 +42,14 @@ Sample code:
         PVOID reserve1;
         PVOID reserve2;
     };
+
+How to use:
+
+    1. #pragma comment(lib,"F:\Public\\io.lib")
+    2. call api
+    3. admin run. 
+
+Sample code:
 
     int main()
     {
