@@ -43,13 +43,9 @@ Interface:
         PVOID reserve2;
     };
 
-How to use:
-
-    1. #pragma comment(lib,"F:\Public\\io.lib")
-    2. call api
-    3. admin run. 
-
 Sample code:
+
+    #pragma comment(lib,"F:\Public\\io.lib")
 
     int main()
     {
