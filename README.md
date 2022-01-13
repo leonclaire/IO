@@ -7,18 +7,31 @@ Attention:
 
     1. no trojan, no backdoor... 
     2. all free and shareable.
-    
+
 Interface:
 
-    BOOL  rp8(WORD, PBYTE);
-    BOOL  wp8(WORD, BYTE);
-    BOOL  rm8(DWORD_PTR, PBYTE, DWORD);
-    BOOL  wm8(DWORD_PTR, PBYTE, DWORD);
+    VOID ITEReadSpace(WORD, BYTE*);
+    VOID ITEWriteSpace(WORD, BYTE);
+    VOID ITEReadSpace(WORD, BYTE*);
+    VOID ITEWriteSpace(WORD, BYTE);
 
-    VOID ITEReadSpace(WORD, BYTE*);
-    VOID ITEWriteSpace(WORD, BYTE);
-    VOID ITEReadSpace(WORD, BYTE*);
-    VOID ITEWriteSpace(WORD, BYTE);
+    class MMIO
+    {
+    public:
+        MMIO(DWORD, DWORD);
+        virtual ~MMIO();
+
+        BOOL rm8(DWORD, DWORD, PBYTE);
+	    BOOL rm16(DWORD, DWORD, PBYTE);
+	    BOOL rm32(DWORD, DWORD, PBYTE);
+	    BOOL wm8(DWORD, DWORD, PBYTE);
+	    BOOL wm16(DWORD, DWORD, PBYTE);
+	    BOOL wm32(DWORD, DWORD, PBYTE);
+
+    private:
+        INT64 reserve1;
+        DWORD reserve2;
+    };    
 
     class ACPI
     {
