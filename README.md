@@ -9,6 +9,9 @@ Attention:
 
 Interface:
 
+    BOOL rp8(WORD port, PBYTE value);
+    BOOL wp8(WORD port, BYTE value);
+
     VOID ITEReadSpace(WORD, BYTE*);
     VOID ITEWriteSpace(WORD, BYTE);
     VOID ITEReadSpace(WORD, BYTE*);
